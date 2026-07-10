@@ -41,10 +41,10 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          custom_instructions:
+          custom_instructions: |
             The project is already set up with all dependencies installed.
-            The server is already running at localhost:3000. Logs from it 
-            are beign written to logs.txt. If needed, you can query the
+            The server is already running at localhost:3000. Logs from it
+            are being written to logs.txt. If needed, you can query the
             db with the 'sqlite3' cli. If needed, use the mcp__playwright
             set of tools to launch a browser and interact with the app.
           
@@ -63,7 +63,7 @@ jobs:
             }
           
           allowed_tools: "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,..."
-          
+
           # This is an optional setting that allows Claude to read CI results on PRs
           additional_permissions: |
             actions: read
