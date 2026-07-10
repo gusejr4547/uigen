@@ -75,12 +75,15 @@ export function MainContent({ user, project }: MainContentProps) {
                 </div>
 
                 {/* Content Area */}
-                <div className="flex-1 overflow-hidden bg-neutral-50">
-                  {activeView === "preview" ? (
-                    <div className="h-full bg-white">
-                      <PreviewFrame />
-                    </div>
-                  ) : (
+                <div className="flex-1 overflow-hidden bg-neutral-50 relative">
+                  <div
+                    className={`h-full bg-white ${
+                      activeView === "preview" ? "" : "hidden"
+                    }`}
+                  >
+                    <PreviewFrame />
+                  </div>
+                  {activeView === "code" && (
                     <ResizablePanelGroup
                       direction="horizontal"
                       className="h-full"
